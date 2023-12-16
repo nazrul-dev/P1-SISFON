@@ -24,8 +24,9 @@ new #[Layout('layouts.guest')] class extends Component {
     }
 }; ?>
 
-<div>
+<div class="flex  gap-5">
     <!-- Session Status -->
+   <x-card>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form wire:submit="login" id="loginForm">
@@ -69,46 +70,39 @@ new #[Layout('layouts.guest')] class extends Component {
             </x-primary-button>
         </div>
     </form>
+   </x-card>
 
-    <div class=" mt-5 border-t">
-        <div class="mb-5 mt-5 ">
-            <div class="font-semibold">Akun Demo</div>
-            <p>silahkan pilih satu akun demo </p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-            <x-button type="button" label="Superadmin" onclick="demoLogin(1)" positive />
-            <x-button type="button" label="Admin KUA" onclick="demoLogin(2)" warning />
-            <x-button type="button" label="Operator KUA" onclick="demoLogin(3)" primary />
-            <x-button type="button" label="Admin Desa" onclick="demoLogin(4)" teal />
-            <x-button type="button" label="Operator Desa" onclick="demoLogin(5)" negative />
-        </div>
+    <x-card title="Akun Demo">
+        <div >
+            <div class="mb-5 ">
 
-    </div>
+                <p>silahkan pilih satu akun demo, <br> semua akun passwordnya  : <strong class="border p-1">password</strong> </p>
+            </div>
+            <div class="flex flex-col gap-2">
+
+                <div class="p-2 border rounded-lg ">
+                    email : superadmin@demo.com <br>
+                    role : Superadmin
+                </div>
+                <div class="p-2 border rounded-lg ">
+                    email : admin-kua@demo.com <br>
+                    role : Admin KUA
+                </div>
+                <div class="p-2 border rounded-lg ">
+                    email : operator-kua@demo.com <br>
+                    role : Operator KUA
+                </div>
+                <div class="p-2 border rounded-lg ">
+                    email : admin-desa@demo.com <br>
+                    role : Admin Desa
+                </div>
+                <div class="p-2 border rounded-lg ">
+                    email : operator-desa@demo.com <br>
+                    role : Operator Desa
+                </div>
+            </div>
+
+        </div>
+    </x-card>
 </div>
 
-<script>
-
-
-    function demoLogin(type) {
-
-        document.getElementById("password").value = 'password'
-
-        if(type == 1){
-            document.getElementById("email").value = 'superadmin@demo.com'
-        }
-        if(type == 2){
-            document.getElementById("email").value = 'admin-kua@demo.com'
-        }
-        if(type == 3){
-            document.getElementById("email").value = 'operator-kua@demo.com'
-        }
-        if(type == 4){
-            document.getElementById("email").value = 'admin-desa@demo.com'
-        }
-        if(type == 5){
-            document.getElementById("email").value = 'nazrul.dev@gmail.com'
-        }
-        document.getElementById('sbm').click();
-
-    }
-</script>

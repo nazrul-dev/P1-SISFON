@@ -9,15 +9,22 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
+    <link rel="stylesheet"
+        href="{{ asset('vendor/rappasoft/livewire-tables/css/laravel-livewire-tables-thirdparty.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/rappasoft/livewire-tables/css/laravel-livewire-tables.min.css') }}">
+
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.13/css/froala_editor.pkgd.min.css">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <wireui:scripts />
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{{ asset('vendor/rappasoft/livewire-tables/js/laravel-livewire-tables.min.js') }}"></script>
+    <script src="{{ asset('vendor/rappasoft/livewire-tables/js/laravel-livewire-tables-thirdparty.min.js') }}"></script>
     <style>
         [x-cloak] {
             display: none !important;
@@ -34,10 +41,8 @@
         <div class="flex-1 flex flex-row overflow-y-hidden">
 
             <main class="flex-1  overflow-y-auto bg-gray-100 " id="elementtoScrollToID">
-                <header class="bg-transparent  z-10 p-2">
 
-                </header>
-                <div class="">
+                <div class="py-2">
                     {{ $slot }}
                 </div>
 
@@ -80,16 +85,7 @@
                             </div>
                         </a>
                     </div>
-                    {{-- <div class="px-5 py-2   cursor-pointer   rounded-lg ">
-                            <a href="{{ route('document') }}">
-                                <div class="flex items-center gap-2">
-                                    <x-icon name="newspaper" class="w-5 h-5" />
-                                    <div class="flex-1">
-                                        Berita
-                                    </div>
-                                </div>
-                            </a>
-                        </div> --}}
+
                     <div
                         class="px-5 py-2 {{ request()->path() === 'document' ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 hover:text-emerald-800 hover:underline' }}   cursor-pointer   rounded-lg ">
                         <a href="{{ route('document') }}" wire:navigate>
@@ -137,7 +133,8 @@
                         </a>
                     </div>
                     <div class="px-5 py-2   cursor-pointer   rounded-lg ">
-                        <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <div class="flex items-center gap-2">
                                 <x-icon name="logout" class="w-5 h-5" />
                                 <div class="flex-1">
@@ -159,35 +156,11 @@
             </nav>
 
 
-            @if (isset($rside))
-                <aside class="sm:w-96 bg-yellow-100 overflow-y-auto">{{ $rside }}</aside>
-            @endif
+
         </div>
-        <!-- end main container -->
-
-
     </div>
-
-    {{-- <div class="min-h-screen bg-gray-100">
-            <livewire:layout.navigation />
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-        </div> --}}
-
-
-
     @stack('scripts')
-
     @livewireChartsScripts
-
     <script>
         document.addEventListener('livewire:init', () => {
             Livewire.on('downloadZip', ({
@@ -206,9 +179,6 @@
 
         });
     </script>
-
-
-
 </body>
 
 </html>

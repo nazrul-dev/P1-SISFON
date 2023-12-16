@@ -20,8 +20,5 @@ class Jabatan extends Model
         return $this->hasOne(AparaturDesa::class);
     }
 
-    public function dataNikahs()
-    {
-        return $this->hasMany(DataNikah::class, 'kua_lainnya');
-    }
+
 }

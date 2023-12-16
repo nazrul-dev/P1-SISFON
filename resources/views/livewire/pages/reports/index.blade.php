@@ -23,11 +23,13 @@ new #[Layout('layouts.app')] class extends Component {
         $tanggalLahirColumn = $this->gender == 'Laki-laki' ? 'tanggal_lahir' : 'i_tanggal_lahir';
         foreach ($rentangUmur as $umur) {
             $jumlahOrang = DataNikah::selectRaw('COUNT(*) as total')
-                ->whereRaw("strftime('%Y', tanggal_akad) - strftime('%Y', $tanggalLahirColumn) = ?", [$umur])
-                ->whereBetween('created_at', [$this->fdate, $this->edate])
-                ->groupBy(DB::raw("strftime('%Y', tanggal_akad) - strftime('%Y', $tanggalLahirColumn)"))
-                ->pluck('total')
-                ->first();
+
+
+                ->whereRaw("YEAR(tanggal_akad) - YEAR($tanggalLahirColumn) = ?", [$umur])
+->whereBetween('created_at', [$this->fdate, $this->edate])
+->groupBy(DB::raw("YEAR(tanggal_akad) - YEAR($tanggalLahirColumn)"))
+ ->pluck('total')
+->first();
 
             if ($jumlahOrang >= 1) {
                 $jumlahOrangPerKelompok[$umur] = $jumlahOrang;

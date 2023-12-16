@@ -22,17 +22,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+
         // Adding an admin user
-        $user = \App\Models\User::factory()
-            ->count(1)
-            ->create([
-                'name' => 'nasrul',
-                'nip' => '112233344',
-                'telepon' => '082291462750',
-                'email' => 'nazrul.dev@gmail.com',
-                'password' => Hash::make('015999wisna'),
-                'role_user' =>'superadmin',
-            ]);
+
+
 
 
 
@@ -98,53 +93,88 @@ class DatabaseSeeder extends Seeder
             'province_id' => '75',
         ]);
 
-        User::create([
-            'email' => 'demo4@demo.com',
-            'name' => 'demo4',
-            'nip' => '112233344',
-            'telepon' => '082291462750',
-            'jabatan_id' => '1',
-            'kua_id' => $kua->id,
-            'tipe_user' => 'kua',
-            'role_user' =>'admin',
-            'password' => Hash::make('demo123'),
-        ]);
-        User::create([
-            'email' => 'demo3@demo.com',
-            'name' => 'demo3',
-            'nip' => '112233344',
-            'telepon' => '082291462750',
-            'jabatan_id' => '3',
-            'kua_id' => $kua->id,
-            'tipe_user' => 'kua',
-            'role_user' =>'operator',
-            'password' => Hash::make('demo123'),
-        ]);
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'nazrul',
+                'nip' => '7423444',
+                'telepon' => '08229234262750',
+                'email' => 'nazrul.dev@gmail.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'superadmin',
+            ]);
 
-        User::create([
-            'email' => 'demo1@demo.com',
-            'name' => 'demo1',
-            'nip' => '112233344',
-            'telepon' => '082291462750',
-            'jabatan_id' => '2',
-            'desa_id' => $desa->id,
-            'kua_id' => $kua->id,
-            'tipe_user' => 'desa',
-            'role_user' =>'admin',
-            'password' => Hash::make('demo123'),
-        ]);
-        User::create([
-            'email' => 'demo2@demo.com',
-            'name' => 'demo2',
-            'nip' => '112233344',
-            'telepon' => '082291462750',
-            'jabatan_id' => '5',
-            'desa_id' => $desa->id,
-            'kua_id' => $kua->id,
-            'tipe_user' => 'desa',
-            'role_user' =>'operator',
-            'password' => Hash::make('demo123'),
-        ]);
+
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'superadmin',
+                'nip' => '749058303458343',
+                'telepon' => '082291462750',
+                'email' => 'superadmin@demo.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'superadmin',
+            ]);
+
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'admin-kua',
+                'nip' => '654334334343',
+                'telepon' => '3453453434',
+                'email' => 'admin-kua@demo.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'admin',
+                'tipe_user' => 'kua',
+                'kua_id' =>  $kua->id,
+                'jabatan_id' => 5,
+            ]);
+
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'operator-kua',
+                'nip' => '654334334332443',
+                'telepon' => '34534523423434',
+                'email' => 'operator-kua@demo.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'operator',
+                'tipe_user' => 'kua',
+                'kua_id' =>  $kua->id,
+                'jabatan_id' => 5,
+            ]);
+
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'admin-desa',
+                'nip' => '55334543534',
+                'telepon' => '23443531232',
+                'email' => 'admin-desa@demo.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'admin',
+                'tipe_user' => 'desa',
+                'desa_id' => $desa->id,
+                'jabatan_id' => 5,
+            ]);
+
+
+        \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'operator-desa',
+                'nip' => '5533451243534',
+                'telepon' => '234435123123',
+                'email' => 'operator-desa@demo.com',
+                'password' => Hash::make('password'),
+                'role_user' => 'operator',
+                'tipe_user' => 'desa',
+                'desa_id' => $desa->id,
+                'jabatan_id' => 5,
+            ]);
+
+
+
         // DataNikah::factory(100)->create();
     }
 }

@@ -20,12 +20,6 @@ return new class extends Migration {
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            $table
-                ->foreign('kua_lainnya')
-                ->references('id')
-                ->on('jabatans')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
 
             $table
                 ->foreign('pencetak_id')

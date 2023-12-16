@@ -4,7 +4,7 @@ namespace App\Providers;
 
 
 use App\Printers\{DataNikahPrinter,DataN6Printer};
-
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+          Schema::defaultStringLength(191);
         App::setLocale('id');
         config(['app.locale' => 'id']);
 

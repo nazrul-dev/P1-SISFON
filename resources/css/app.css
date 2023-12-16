@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.umur[data-value] {
+    --angka: calc(var(--umur) * 10%);
+    background-color: hsl(var(--angka), 100%, 50%); /* Warna berdasarkan nilai angka */
+  }

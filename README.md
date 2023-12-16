@@ -1,9 +1,31 @@
-DEMO AKUN 
+SISFON ( Sistim informasi Nikah )
 
-superadmin@demo.com
+- Teknologi Stack 
 
-admin-kua@demo.com
-operator-kua@demo.com
+    * Laravel 10 
+    * Livewire 3
+    * Tailwind 3
+    * AlpineJS
+    * MySQL
 
-admin-desa@demo.com
-operator-desa@demo.com
+- Feature Coming soon
+
+    * Export Excel All dokumen,and report
+    * Domisili Report
+    * Update Dokumen 
+    * Tambah Dokumen N4
+    * Backup And Restore
+    * Cronjobs Remove Temp Document
+    * Audit Trails
+    * Chating Module Antar Desa dan KUA
+    
+
+
+
+
+
+
+
+
+
+
